@@ -1,0 +1,218 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>cn.edu.uestc</groupId>
+  <artifactId>indoor-location</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  
+  <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <version.slf4j>1.7.10</version.slf4j>
+        <version.spring>4.1.5.RELEASE</version.spring>
+        <version.netty>4.1.6.Final</version.netty>
+        <version.cglib>3.1</version.cglib>
+        <version.msgpack>0.6.9</version.msgpack>
+        <version.protostuff>1.5.2</version.protostuff>
+        <version.objenesis>2.1</version.objenesis>
+        <version.junit>4.10</version.junit>
+        <version.fastjson>1.2.20</version.fastjson>
+        <version.mysql.connector>5.1.34</version.mysql.connector>
+        <version.jama>1.0.3</version.jama>
+        <version.commons-lang>3.3.2</version.commons-lang>
+        <version.jedis>2.9.0</version.jedis>
+        <version.redis-data>1.7.10.RELEASE</version.redis-data>
+        <version.commons-collections>4.0</version.commons-collections>
+        <version.maven-compiler-plugin>3.2</version.maven-compiler-plugin>
+        <version.maven-surefire-plugin>2.18.1</version.maven-surefire-plugin>
+        <version.maven-source-plugin>2.4</version.maven-source-plugin>
+        <version.maven-javadoc-plugin>2.10.3</version.maven-javadoc-plugin>
+    </properties>
+  
+  	<dependencyManagement>
+       	<dependencies>
+        	<!-- SLF4J -->
+           	<dependency>
+               <groupId>org.slf4j</groupId>
+               <artifactId>slf4j-log4j12</artifactId>
+               <version>${version.slf4j}</version>
+           	</dependency>
+        	<!-- Spring -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${version.spring}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-test</artifactId>
+                <version>${version.spring}</version>
+                <scope>test</scope>
+            </dependency>
+            <!-- Netty -->
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>${version.netty}</version>
+            </dependency>
+            <!-- CGLib -->
+            <dependency>
+                <groupId>cglib</groupId>
+                <artifactId>cglib</artifactId>
+                <version>${version.cglib}</version>
+            </dependency>
+        	<!-- Apache Commons Lang -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${version.commons-lang}</version>
+            </dependency>
+            <!-- Apache Commons Collections -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-collections4</artifactId>
+                <version>${version.commons-collections}</version>
+        	</dependency>
+        	<!-- Msgpack, 比json快, 更省空间 -->
+       	 	<dependency>
+    			<groupId>org.msgpack</groupId>
+    			<artifactId>msgpack</artifactId>
+    			<version>${version.msgpack}</version>
+  			</dependency>
+  			<dependency>
+  				<groupId>io.protostuff</groupId>
+  				<artifactId>protostuff-core</artifactId>
+  				<version>${version.protostuff}</version>
+			</dependency>
+			<dependency>
+  				<groupId>io.protostuff</groupId>
+ 				<artifactId>protostuff-runtime</artifactId>
+  				<version>${version.protostuff}</version>
+			</dependency>
+			<dependency>
+			<groupId>org.objenesis</groupId>
+			<artifactId>objenesis</artifactId>
+			<version>${version.objenesis}</version>
+			</dependency>
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${version.junit}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+    			<groupId>com.alibaba</groupId>
+    			<artifactId>fastjson</artifactId>
+    			<version>${version.fastjson}</version>
+			</dependency>
+			
+			 <dependency>  
+        		<groupId>org.springframework</groupId>  
+        		<artifactId>spring-jdbc</artifactId>  
+        		<version>${version.spring}</version>  
+    		</dependency>  
+			
+			<dependency>  
+        		<groupId>mysql</groupId>  
+        		<artifactId>mysql-connector-java</artifactId>  
+        		<version>${version.mysql.connector}</version>  
+    		</dependency>
+    		
+    		<!-- https://mvnrepository.com/artifact/gov.nist.math/jama -->
+			<dependency>
+    			<groupId>gov.nist.math</groupId>
+    			<artifactId>jama</artifactId>
+    			<version>${version.jama}</version>
+			</dependency>
+			
+    		<!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
+			<dependency>
+			    <groupId>redis.clients</groupId>
+			    <artifactId>jedis</artifactId>
+			    <version>${version.jedis}</version>
+			</dependency>
+		    <dependency>
+		        <groupId>org.springframework.data</groupId>
+		        <artifactId>spring-data-redis</artifactId>
+		        <version>${version.redis-data}</version>
+		    </dependency>
+       </dependencies>
+  </dependencyManagement>
+  
+  <build>
+        <plugins>
+            <!-- Compiler -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${version.maven-compiler-plugin}</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <!-- Test -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${version.maven-surefire-plugin}</version>
+                <configuration>
+                    <skipTests>true</skipTests>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>release</id>
+            <build>
+                <plugins>
+                    <!-- Source -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>${version.maven-source-plugin}</version>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>jar-no-fork</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <!-- Javadoc -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>${version.maven-javadoc-plugin}</version>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+            <distributionManagement>
+                <repository>
+                    <id>nexus-releases</id>
+                    <url>http://nexus.ycmsh.com/content/repositories/releases/</url>
+                </repository>
+                <snapshotRepository>
+                    <id>nexus-snapshots</id>
+                    <url>http://nexus.ycmsh.com/content/repositories/snapshots/</url>
+                </snapshotRepository>
+            </distributionManagement>
+        </profile>
+    </profiles>
+  
+    <modules>
+    	<module>location-web</module>
+    	<module>location-bootstrap</module>
+    </modules>
+</project>

@@ -1,0 +1,133 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>cn.edu.uestc</groupId>
+    <artifactId>indoor-location</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>location-bootstrap</artifactId>
+  
+  <dependencies>
+        <!-- SLF4J -->
+      	<dependency>
+           <groupId>org.slf4j</groupId>
+           <artifactId>slf4j-log4j12</artifactId>
+        </dependency>
+       	<!-- Spring -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- Netty -->
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+        </dependency>
+        <!-- CGLib -->
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+        </dependency>
+     	<!-- Apache Commons Lang -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+        <!-- Apache Commons Collections -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+        </dependency>  
+        <!-- MessagePack -->
+        <dependency>
+    			<groupId>org.msgpack</groupId>
+    			<artifactId>msgpack</artifactId>
+  		</dependency>
+  		<!-- ProtoStuff -->
+  		<dependency>
+  				<groupId>io.protostuff</groupId>
+  				<artifactId>protostuff-core</artifactId>
+		</dependency>
+		<dependency>
+  				<groupId>io.protostuff</groupId>
+ 				<artifactId>protostuff-runtime</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.objenesis</groupId>
+			<artifactId>objenesis</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+		</dependency>
+		<dependency>
+    		<groupId>com.alibaba</groupId>
+    		<artifactId>fastjson</artifactId>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/commons-dbcp/commons-dbcp -->
+		<dependency>
+    		<groupId>commons-dbcp</groupId>
+    		<artifactId>commons-dbcp</artifactId>
+    		<version>1.4</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/commons-pool/commons-pool -->
+		<dependency>
+    		<groupId>commons-pool</groupId>
+    		<artifactId>commons-pool</artifactId>
+    		<version>1.5.4</version>
+		</dependency>
+		
+		<dependency>  
+        	<groupId>org.springframework</groupId>  
+        	<artifactId>spring-jdbc</artifactId> 
+        </dependency>
+        <dependency>  
+        	<groupId>mysql</groupId>  
+        	<artifactId>mysql-connector-java</artifactId>  
+    	</dependency> 
+    	
+    	<dependency>
+    			<groupId>gov.nist.math</groupId>
+    			<artifactId>jama</artifactId>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
+		<dependency>
+		    <groupId>redis.clients</groupId>
+		    <artifactId>jedis</artifactId>
+		</dependency>
+		
+		<dependency>
+		        <groupId>org.springframework.data</groupId>
+		        <artifactId>spring-data-redis</artifactId>
+		</dependency>
+		
+  	</dependencies>
+  
+  	<build>
+        <plugins>
+            <!-- Jar -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib</classpathPrefix>
+                            <mainClass>cn.edu.uestc.indoorlocation.bootstrap.TestMain</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+  
+</project>
